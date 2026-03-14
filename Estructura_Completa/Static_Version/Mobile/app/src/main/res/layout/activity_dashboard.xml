@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/input_style"
+                    android:backgroundTint="@color/accent_orange" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" MindSync Student"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/input_style"
+                android:backgroundTint="@color/accent_orange" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_style"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resumen Semanal"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+                <View android:layout_width="12dp" android:layout_height="40dp" android:layout_margin="4dp" android:background="@color/accent_purple" />
+                <View android:layout_width="12dp" android:layout_height="70dp" android:layout_margin="4dp" android:background="@color/accent_purple" />
+                <View android:layout_width="12dp" android:layout_height="50dp" android:layout_margin="4dp" android:background="@color/accent_purple" />
+                <View android:layout_width="12dp" android:layout_height="85dp" android:layout_margin="4dp" android:background="@color/accent_purple" />
+                <View android:layout_width="12dp" android:layout_height="30dp" android:layout_margin="4dp" android:background="@color/accent_purple" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/accent_purple"
+                android:text="Crear Plan Semanal"
+                android:textAllCaps="false"
+                app:cornerRadius="15dp" />
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/card_style"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📅" android:textSize="20sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Planificador" android:textColor="@color/white" android:textSize="12sp" android:layout_marginTop="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="5dp"
+                android:background="@drawable/card_style"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="❤️" android:textSize="20sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Diario" android:textColor="@color/white" android:textSize="12sp" android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_style"
+            android:backgroundTint="#1D1B26"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/accent_purple"
+                android:paddingHorizontal="8dp"
+                android:text="IA Gemini"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Vas muy bien esta semana. Tu productividad del martes fue excelente — mantén esa rutina de estudio en la mañana. 🎯"
+                android:textColor="@color/text_dim"
+                android:textSize="13sp"
+                android:fontStyle="italic" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

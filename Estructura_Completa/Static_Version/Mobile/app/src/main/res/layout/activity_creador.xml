@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0F14">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plan de Estudio"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="25dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_style"
+            android:backgroundTint="#1D1B26"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MATERIAL DE ORIGEN"
+                android:textColor="#66FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginBottom="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/input_style"
+                android:backgroundTint="#0D0F14"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@android:drawable/stat_sys_upload"
+                    app:tint="#a29bfe" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sube tu archivo para analizar"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PDF, DOCX o Imágenes soportados"
+                    android:textColor="#66FFFFFF"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ARCHIVOS RECIENTES"
+                android:textColor="#66FFFFFF"
+                android:textSize="11sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_style"
+                android:backgroundTint="#0D0F14"
+                android:padding="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_menu_save"
+                    app:tint="#FF7675" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clase_Android_S03.pdf"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="10dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_style"
+            android:backgroundTint="#1D1B26"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GENERADOR INTELIGENTE"
+                android:textColor="#66FFFFFF"
+                android:textSize="12sp"
+                android:layout_marginBottom="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#a29bfe"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="2dp"
+                android:text="IA Gemini"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text='"Hola Wilder. He analizado el archivo de Android. He detectado que los puntos clave son la navegación mediante Fragments y el ciclo de vida de la Activity. ¿Quieres que genere un cronograma de 3 días para dominar estos temas?"'
+                android:textColor="#66FFFFFF"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/input_style"
+                android:backgroundTint="#0D0F14"
+                android:hint="Escribe tu petición aquí..."
+                android:textColorHint="#44FFFFFF"
+                android:textColor="#FFFFFF"
+                android:padding="15dp"
+                android:textSize="14sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="Crear cronograma"
+                        android:backgroundTint="#2D3436"
+                        android:textSize="10sp"
+                        android:textAllCaps="false"
+                        android:layout_marginEnd="8dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="Generar cuestionario"
+                        android:backgroundTint="#2D3436"
+                        android:textSize="10sp"
+                        android:textAllCaps="false"
+                        android:layout_marginEnd="8dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="Resumir puntos clave"
+                        android:backgroundTint="#2D3436"
+                        android:textSize="10sp"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
