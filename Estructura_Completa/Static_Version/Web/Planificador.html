@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSync - Planificador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Paleta de colores unificada basada en tu Dashboard */
+            --bg-dark: #12141d; /* Fondo negro sólido */
+            --card-bg: #1a1d26; /* Color de tarjeta del dashboard */
+            --accent-orange: #ff8c42;
+            --accent-purple: #9d7cff;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            
+            /* Colores de Actividades */
+            --act-red: #e74c3c;
+            --act-yellow: #f1c40f;
+            --act-blue: #3498db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            background: var(--accent-orange);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .user-avatar {
+            background: var(--accent-orange);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 140, 66, 0.3);
+        }
+
+        /* --- CONTENEDOR --- */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        .planner-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 25px;
+        }
+
+        /* --- CALENDARIO --- */
+        .calendar-card {
+            background: #24283b; /* Tono ligeramente azulado para el calendario como en la imagen */
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .day-label {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Colores exactos de la imagen del planificador */
+        .day.off { color: #4b4f69; }
+        .day.p { background: #6c5ce7; } /* Púrpura */
+        .day.r { background: #ff7675; } /* Rojo */
+        .day.o { background: #ff9f43; } /* Naranja */
+        .day.y { background: #feca57; } /* Amarillo */
+        .day.g { background: #55efc4; color: #1e272e; } /* Verde */
+        .day.b { background: #48dbfb; color: #1e272e; } /* Cyan */
+
+        /* --- COLUMNA DERECHA --- */
+        .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Botones de Actividades */
+        .btn-act {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-act.android { background: #e74c3c; }
+        .btn-act.resumen { background: #f39c12; }
+        .btn-act.challenge { background: #3498db; }
+
+        .btn-act:hover { transform: scale(1.02); opacity: 0.9; }
+
+        /* Tarjeta Gemini */
+        .gemini-card {
+            background: rgba(157, 124, 255, 0.05);
+            border: 1px solid rgba(157, 124, 255, 0.15);
+        }
+
+        .gemini-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .gemini-text {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #bdc3c7;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-brain"></i></div>
+        <span>MindSync <span style="color: var(--accent-orange)">Student</span></span>
+    </div>
+    <div class="user-avatar">S</div>
+</nav>
+
+<div class="container">
+    <h1>Planificador</h1>
+
+    <div class="planner-layout">
+        <div class="calendar-card">
+            <div class="calendar-header">
+                <i class="fa-solid fa-chevron-left" style="font-size: 0.9rem; color: var(--text-dim);"></i>
+                <span>Abril 2024</span>
+                <i class="fa-solid fa-chevron-right" style="font-size: 0.9rem; color: var(--text-dim);"></i>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="day-label">L</div><div class="day-label">M</div><div class="day-label">M</div><div class="day-label">J</div><div class="day-label">V</div><div class="day-label">S</div><div class="day-label">D</div>
+                
+                <div class="day off">31</div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day b">5</div><div class="day b">6</div>
+                <div class="day p">7</div><div class="day r">8</div><div class="day r">9</div><div class="day o">10</div><div class="day y">11</div><div class="day g">12</div><div class="day g">13</div>
+                <div class="day p">14</div><div class="day p">15</div><div class="day r">16</div><div class="day o">17</div><div class="day y">18</div><div class="day g">19</div><div class="day g">20</div>
+                <div class="day p">21</div><div class="day p">22</div><div class="day r">23</div><div class="day o">24</div><div class="day y">25</div><div class="day g">26</div><div class="day g">27</div>
+                <div class="day p">28</div><div class="day p">29</div><div class="day r">30</div><div class="day o">31</div><div class="day off">1</div><div class="day off">2</div><div class="day off">3</div>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="card">
+                <p class="card-title">Actividades</p>
+                <button class="btn-act android">Android</button>
+                <button class="btn-act resumen">Resumenes</button>
+                <button class="btn-act challenge">Challenge Lab</button>
+            </div>
+
+            <div class="card gemini-card">
+                <div class="gemini-header">
+                    Gemini <i class="fa-solid fa-wand-magic-sparkles" style="color: #48dbfb;"></i>
+                </div>
+                <p class="gemini-text">
+                    "¿Qué te gustaría hacer hoy o en qué te puedo ayudar primero?"
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

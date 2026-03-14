@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSync Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:        #0f1117;
+  --bg2:       #161822;
+  --card:      rgba(26, 29, 46, 0.9);
+  --border:    rgba(255,255,255,0.07);
+  --violet:    #7c5cfc;
+  --orange:    #f97316;
+  --text:      #f0f1f8;
+  --text2:     #8b8fa8;
+  --fh: 'Outfit', sans-serif;
+  --fb: 'Plus Jakarta Sans', sans-serif;
+  --r: 24px;
+}
+
+body {
+  font-family: var(--fb);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BG BLOBS */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: -1;
+}
+.blob-1 { width: 400px; height: 400px; background: rgba(124,92,252,0.1); top: -100px; left: -100px; }
+
+/* LOGIN CARD */
+.login-card {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  padding: 50px 40px;
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-box {
+  background: var(--orange);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.logo-text {
+  font-family: var(--fh);
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.logo-text span { color: var(--orange); }
+
+h1 {
+  font-family: var(--fh);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+/* INPUTS */
+.input-field {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(15, 17, 23, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.input-field i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--orange);
+}
+
+/* BOTÓN NARANJA */
+.btn-primary {
+  width: 100%;
+  padding: 15px;
+  background: var(--orange);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(249, 115, 22, 0.2);
+  margin-top: 10px;
+}
+
+.divider {
+  margin: 25px 0;
+  font-size: 0.8rem;
+  color: var(--text2);
+}
+
+/* GOOGLE BUTTON */
+.btn-google {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.forgot {
+  color: var(--violet);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+
+<div class="login-card">
+  <div class="logo-area">
+    <div class="logo-box">
+      <i class="fa-solid fa-brain" style="color:white; font-size:1.1rem;"></i>
+    </div>
+    <div class="logo-text">MindSync <span>Student</span></div>
+  </div>
+
+  <h1>LOGIN</h1>
+
+  <div class="input-field">
+    <input type="text" placeholder="Correo electrónico">
+    <i class="fa-solid fa-envelope"></i>
+  </div>
+
+  <div class="input-field">
+    <input type="password" placeholder="Contraseña">
+    <i class="fa-solid fa-lock"></i>
+  </div>
+
+  <button class="btn-primary">Iniciar Sesión</button>
+
+  <div class="divider">o continúa con</div>
+
+  <button class="btn-google">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" width="18">
+    Continuar con Google
+  </button>
+
+  <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+</div>
+
+</body>
+</html>

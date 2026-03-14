@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSync - Estadísticas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Colores extraídos exactamente de la imagen del Dashboard */
+            --bg-dark: #12141d; /* Fondo oscuro sólido del Dashboard */
+            --card-bg: #1a1d26; /* Color de las tarjetas */
+            --accent-purple: #9d7cff;
+            --accent-orange: #ff8c42;
+            --accent-green: #4ade80;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR SUPERIOR (Estilo Dashboard) --- */
+        .navbar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            background: var(--accent-orange);
+            padding: 8px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .user-avatar {
+            background: var(--accent-orange);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* --- CONTENIDO --- */
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 40px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- GRÁFICOS RECREADOS --- */
+        .area-chart-sim {
+            height: 120px;
+            background: linear-gradient(180deg, rgba(157, 124, 255, 0.2) 0%, transparent 100%);
+            clip-path: polygon(0% 80%, 20% 60%, 40% 85%, 60% 50%, 80% 70%, 100% 40%, 100% 100%, 0% 100%);
+            border-bottom: 2px solid var(--accent-purple);
+        }
+
+        .bar-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 150px;
+            padding-top: 10px;
+        }
+
+        .bar {
+            width: 35px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .day-label {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            margin-top: 8px;
+        }
+
+        /* --- ESTADO EMOCIONAL --- */
+        .mood-box {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .mood-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* --- GEMINI CARD --- */
+        .ia-card {
+            grid-column: 2;
+            background: rgba(157, 124, 255, 0.05);
+            border: 1px solid rgba(157, 124, 255, 0.1);
+        }
+
+        .ia-badge {
+            background: var(--accent-purple);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .ia-content {
+            font-size: 0.85rem;
+            color: #bdc3c7;
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-brain"></i></div>
+        <span>MindSync <span style="color: var(--accent-orange)">Student</span></span>
+    </div>
+    <div class="header-right" style="display: flex; gap: 20px; align-items: center;">
+        <i class="fa-solid fa-bell" style="color: var(--accent-orange)"></i>
+        <div class="user-avatar">W</div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Estadísticas</h1>
+
+    <div class="stats-grid">
+        <div class="card">
+            <p class="card-title">Productividad Semanal</p>
+            <div class="area-chart-sim"></div>
+        </div>
+
+        <div class="card">
+            <p class="card-title">Balance Estudio / Descanso</p>
+            <div class="bar-container">
+                <div style="display: flex; flex-direction: column;">
+                    <div class="bar" style="height: 100px; background: #5bc0de;"></div>
+                    <span class="day-label">M</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="bar" style="height: 60px; background: #ff6b6b;"></div>
+                    <span class="day-label">J</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="bar" style="height: 80px; background: #feca57;"></div>
+                    <span class="day-label">Mi</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="bar" style="height: 110px; background: var(--accent-purple);"></div>
+                    <span class="day-label">J</span>
+                </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="bar" style="height: 130px; background: var(--accent-green);"></div>
+                    <span class="day-label">V</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <p class="card-title">Estado Emocional</p>
+            <div class="mood-box">
+                <div class="mood-circle" style="background: var(--accent-green);"><i class="fa-solid fa-smile"></i></div>
+                <div class="mood-circle" style="background: var(--accent-purple); border: 2px solid white;"><i class="fa-solid fa-meh"></i></div>
+                <div class="mood-circle" style="background: #ff6b6b;"><i class="fa-solid fa-frown"></i></div>
+            </div>
+        </div>
+
+        <div class="card ia-card">
+            <div class="ia-badge">IA Gemini</div>
+            <div class="ia-content">
+                "Según tus estadísticas, has avanzado bien en los conceptos básicos de Android. Sin embargo, aún puedes reforzar temas como la navegación entre pantallas y el uso de layouts."
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

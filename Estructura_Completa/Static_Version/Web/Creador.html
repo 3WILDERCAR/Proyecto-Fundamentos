@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSync - Plan de Estudio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #12141d;
+            --card-bg: #1a1d26;
+            --accent-orange: #ff8c42;
+            --accent-purple: #9d7cff;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .user-avatar {
+            background: var(--accent-orange);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* --- CONTENIDO --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .card-label {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        /* --- ZONA DE CARGA --- */
+        .upload-zone {
+            border: 2px dashed rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent-purple);
+            background: rgba(157, 124, 255, 0.02);
+        }
+
+        .upload-zone i {
+            font-size: 2rem;
+            color: var(--accent-purple);
+            margin-bottom: 15px;
+        }
+
+        /* --- INTERFAZ IA --- */
+        .ia-response-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ia-badge {
+            background: var(--accent-purple);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .ia-message {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #d1d5db;
+        }
+
+        .chat-input-wrapper {
+            margin-top: auto;
+            background: #0d0f14;
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .chat-input-wrapper input {
+            background: transparent;
+            border: none;
+            color: white;
+            flex: 1;
+            outline: none;
+        }
+
+        /* --- CHIPS DE ACCIÓN --- */
+        .chips-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .chip:hover {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <i class="fa-solid fa-brain" style="color: var(--accent-orange);"></i>
+        <span>MindSync <span style="color: var(--accent-orange)">Student</span></span>
+    </div>
+    <div class="user-avatar">W</div>
+</nav>
+
+<div class="container">
+    <h1>Plan de Estudio</h1>
+
+    <div class="grid-layout">
+        <div class="card">
+            <span class="card-label">Material de Origen</span>
+            <div class="upload-zone">
+                <i class="fa-solid fa-file-arrow-up"></i>
+                <p style="margin: 10px 0;">Sube tu archivo para analizar</p>
+                <span style="font-size: 0.75rem; color: var(--text-dim);">PDF, DOCX o Imágenes soportados</span>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <span class="card-label" style="font-size: 0.75rem; margin-bottom: 15px;">Archivos recientes</span>
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 10px;">
+                    <i class="fa-solid fa-file-pdf" style="color: #ff6b6b;"></i>
+                    <span style="font-size: 0.85rem;">Clase_Android_S03.pdf</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card ia-response-card">
+            <span class="card-label">Generador Inteligente</span>
+            
+            <div class="ia-badge">IA Gemini</div>
+            <p class="ia-message">
+                "Hola Wilder. He analizado el archivo de Android. He detectado que los puntos clave son la navegación mediante Fragments y el ciclo de vida de la Activity. ¿Quieres que genere un cronograma de 3 días para dominar estos temas?"
+            </p>
+
+            <div class="chat-input-wrapper">
+                <i class="fa-solid fa-paperclip" style="color: var(--text-dim);"></i>
+                <input type="text" placeholder="Escribe tu petición aquí...">
+                <i class="fa-solid fa-paper-plane" style="color: var(--accent-purple);"></i>
+            </div>
+
+            <div class="chips-container">
+                <div class="chip">Crear cronograma</div>
+                <div class="chip">Generar cuestionario</div>
+                <div class="chip">Resumir puntos clave</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+</html>
